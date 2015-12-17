@@ -28,6 +28,8 @@ Install dependencies
 `cd TuneDB`
 `npm install`
 
+Add your music to `./media`, this can be changed in the config.
+
 Fire it up!
 `node index`
 
