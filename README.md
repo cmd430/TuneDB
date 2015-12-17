@@ -69,9 +69,7 @@ The API contains the following 'routes' which produce the example output
          {  
             "_id":"1076576860",
             "name":"Welcome to New York",
-            "genres":[  
-               "Dance/Dance"
-            ],
+            "genres": "Dance/Dance",
             "track":{  
                "no":1,
                "of":0
@@ -86,9 +84,7 @@ The API contains the following 'routes' which produce the example output
          {  
             "_id":"1785765497",
             "name":"Blank Space",
-            "genres":[  
-               "Dance/Dance"
-            ],
+            "genres": "Dance/Dance",
             "track":{  
                "no":2,
                "of":0
@@ -103,9 +99,7 @@ The API contains the following 'routes' which produce the example output
          {  
             "_id":"1502702560",
             "name":"Style",
-            "genres":[  
-               "Dance/Dance"
-            ],
+            "genres": "Dance/Dance",
             "track":{  
                "no":3,
                "of":0
@@ -119,9 +113,7 @@ The API contains the following 'routes' which produce the example output
          },
          ...
       ],
-      "artist":[  
-         "Taylor Swift"
-      ]
+      "artist": "Taylor Swift"
    }
 ]
 ```
@@ -146,9 +138,7 @@ The API contains the following 'routes' which produce the example output
       {  
          "_id":"1076576860",
          "name":"Welcome to New York",
-         "genres":[  
-            "Dance/Dance"
-         ],
+         "genres": "Dance/Dance",
          "track":{  
             "no":1,
             "of":0
@@ -161,9 +151,7 @@ The API contains the following 'routes' which produce the example output
          "duration":212.32915625
       }
    ],
-   "artist":[  
-      "Taylor Swift"
-   ]
+   "artist": "Taylor Swift"
 }
 ```
 
@@ -186,9 +174,7 @@ The API contains the following 'routes' which produce the example output
       "artwork":[  
          null
       ],
-      "artist":[  
-         "Ed Sheeran"
-      ]
+      "artist": "Ed Sheeran"
    },
    {  
       "_id":"1098819766",
@@ -199,9 +185,7 @@ The API contains the following 'routes' which produce the example output
       "artwork":[  
          null
       ],
-      "artist":[  
-         "deadmau5"
-      ]
+      "artist": "deadmau5"
    },
    ...
 ]
@@ -231,9 +215,7 @@ paginated
          {  
             "_id":"1076576860",
             "name":"Welcome to New York",
-            "genres":[  
-               "Dance/Dance"
-            ],
+            "genres": "Dance/Dance",
             "track":{  
                "no":1,
                "of":0
@@ -246,9 +228,7 @@ paginated
             "duration":212.32915625
          }
       ],
-      "artist":[  
-         "Taylor Swift"
-      ]
+      "artist": "Taylor Swift"
    },
    {  
       "_id":"-51451698",
@@ -263,9 +243,7 @@ paginated
          {  
             "_id":"498125268",
             "name":"Welcome to the Jungle",
-            "genres":[  
-               "Rock/Rock"
-            ],
+            "genres": "Rock/Rock",
             "track":{  
                "no":1,
                "of":0
@@ -278,9 +256,7 @@ paginated
             "duration":273.34875
          }
       ],
-      "artist":[  
-         "Guns N' Roses"
-      ]
+      "artist": "Guns N' Roses"
    }
 ]
 ```
@@ -308,9 +284,7 @@ paginated
          {  
             "_id":"1076576860",
             "name":"Welcome to New York",
-            "genres":[  
-               "Dance/Dance"
-            ],
+            "genres": "Dance/Dance",
             "track":{  
                "no":1,
                "of":0
@@ -325,9 +299,7 @@ paginated
          {  
             "_id":"1785765497",
             "name":"Blank Space",
-            "genres":[  
-               "Dance/Dance"
-            ],
+            "genres": "Dance/Dance",
             "track":{  
                "no":2,
                "of":0
@@ -342,9 +314,7 @@ paginated
          {  
             "_id":"1502702560",
             "name":"Style",
-            "genres":[  
-               "Dance/Dance"
-            ],
+            "genres": "Dance/Dance",
             "track":{  
                "no":3,
                "of":0
@@ -358,8 +328,7 @@ paginated
          },
          ...
       ],
-      "artist":[  
-         "Taylor Swift"
+      "artist": "Taylor Swift"
       ]
    }
 ]
