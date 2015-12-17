@@ -1,7 +1,7 @@
 {
   "name": "music-server",
   "version": "0.0.1",
-  "lastRefresh": 1450318926,
+  "lastRefresh": 0,
   "description": "stream your music",
   "main": "index.js",
   "dependencies": {
