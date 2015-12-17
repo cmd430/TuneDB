@@ -342,10 +342,12 @@ paginated
 
 `https://<YOUR_URL>/artist/Taylor Swift`
 
+-----
+
 `genre/:genre` - This returns tracks matching genre.
 
 `genre/:genre/:page` - This returns tracks matching genre.. paginated
 
 **Example**
 
-`https://<YOUR_URL>/artist/Taylor Swift`
+`https://<YOUR_URL>/genre/Dance`
