@@ -9,7 +9,7 @@ module.exports = mongoose.model( 'Music', {
 		}
 	},
     album: String,
-    artist: [],
+    artist: String,
 	year: String,
 	tracks: [],
 	artwork: [],

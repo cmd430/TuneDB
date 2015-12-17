@@ -23,4 +23,12 @@ module.exports = function( app ) {
 	app.get( '/track/search/:search', music.trackSearch );
 	app.get( '/track/search/:search/:page', music.trackSearchPage );
 	
+	//search albums by artist name
+	app.get( '/artist/:artist', music.artistSearch );
+	app.get( '/artist/:artist/:page', music.artistSearchPage );
+	
+	//search tracks by genre
+	app.get( '/genre/:genre', music.genreSearch );
+	app.get( '/genre/:genre/:page', music.genreSearchPage );
+	
 }

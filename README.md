@@ -210,11 +210,11 @@ The API contains the following 'routes' which produce the example output
 `track/search/:search` - This returns albums with tracks matching search with only the tracks matching the search in the tracks array.
 
 `track/search/:search/:page` - This returns albums with tracks matching search with only the tracks matching the search in the tracks array, 
-from the specified page only
+paginated
 
 **Example**
 
-`https://<YOUR_URL>/track/search/Welcom` returns the following:
+`https://<YOUR_URL>/track/search/Welcome` returns the following:
 
 ```
 [  
@@ -287,7 +287,7 @@ from the specified page only
 
 `album/search/:search` - This returns albums matching search.
 
-`album/search/:search/:page` - This returns albums matching search from the specified page only
+`album/search/:search/:page` - This returns albums matching search. paginated
 
 **Example**
 
@@ -364,3 +364,19 @@ from the specified page only
    }
 ]
 ```
+
+`artist/:artist` - This returns albums by artist.
+
+`artist/:artist/:page` - This returns albums by artist. paginated
+
+**Example**
+
+`https://<YOUR_URL>/artist/Taylor Swift`
+
+`genre/:genre` - This returns tracks matching genre.
+
+`genre/:genre/:page` - This returns tracks matching genre.. paginated
+
+**Example**
+
+`https://<YOUR_URL>/artist/Taylor Swift`

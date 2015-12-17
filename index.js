@@ -21,11 +21,6 @@ if( cluster.isMaster ) {
 		cluster.fork();
 	});
 	
-    cluster.on( 'exit', function( worker, code, signal ) {
-        console.error( 'worker ' + worker.process.pid + ' died, spinning up another!' );
-        cluster.fork();
-    });
-	
 	//Only scan for new music on master thread...
 	var scope = domain.create();
 	scope.run(function() {

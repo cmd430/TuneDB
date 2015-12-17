@@ -13,7 +13,20 @@ module.exports = {
 			uptime: process.uptime() | 0,
 			server: config.severName || 'Unknown',
 			updated: info().lastRefresh || 'Unknown' ,
-			version: info().version || 'Unkwown'
+			version: info().version || 'Unkwown',
+			routes: [
+				'/',
+				'/music',
+				'/music/:page',
+				'/album/:id',
+				'/album/search/:search',
+				'/album/search/:search/:page',
+				'/track/:id',
+				'/track/search/:search',
+				'/track/search/:search/:page',
+				'/artist/:artist',
+				'/artist/:artist/:page'
+			]
 		});
 	}
 

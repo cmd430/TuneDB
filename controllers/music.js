@@ -26,9 +26,6 @@ module.exports = {
 			}
 		};
         var data = req.query;
-        if ( !data.order ) {
-            data.order = -1;
-		}
         // filter elements
         if ( data.keywords ) {
             var words = data.keywords.split( ' ' );
@@ -47,23 +44,6 @@ module.exports = {
 				}
 			};
         }
-		//this might not work
-		var sort = {
-			'album': data.order, 
-			'artist': data.order
-		}
-        if ( data.sort ) {
-            if ( data.sort == 'year' ) sort = { year: data.order };
-            if ( data.sort == 'artist' ) sort = { album: ( data.order * -1 ) };
-        }
-        if ( data.genre && data.genre != 'All' ) {
-            query = { 
-				genres: data.genre, 
-				num_tracks: {
-					$gt: 0
-				}
-			}
-        }
         // paging
         Music.find( query, {
             _id: 1,
@@ -73,7 +53,9 @@ module.exports = {
 			artwork: 1,
             num_tracks: 1,
             last_updated: 1
-        }).sort( sort ).skip( offset ).limit( config.pageSize ).exec( function ( err, docs ) {
+        }).sort({
+			year: 1
+		}).skip( offset ).limit( config.pageSize ).exec( function ( err, docs ) {
             res.json( docs );
         });
 	},
@@ -109,8 +91,8 @@ module.exports = {
 				$gt: 0
 			}
         }).sort({
-			title: -1
-		}).limit( config.pageSize ).exec( function ( err, docs ) {
+			album: -1
+		}).exec( function ( err, docs ) {
             res.json( docs );
         });
 	},
@@ -125,7 +107,7 @@ module.exports = {
 				$gt: 0
 			}
         }).sort({
-			title: -1
+			album: -1
 		}).skip( offset ).limit( config.pageSize ).exec( function ( err, docs ) {
             res.json( docs );
         });
@@ -136,8 +118,8 @@ module.exports = {
 		Music.find({
             'tracks.name': keywords
         }).sort({
-			title: -1
-		}).limit( config.pageSize ).exec( function ( err, docs ) {
+			name: -1
+		}).exec( function ( err, docs ) {
 			var tracks = [];
 			async.each( docs, function( doc, callback ){
 				var l_tracks = [];
@@ -162,13 +144,87 @@ module.exports = {
         Music.find({
             'tracks.name': keywords
         }).sort({
-			title: -1
+			name: -1
 		}).skip( offset ).limit( config.pageSize ).exec( function ( err, docs ) {
 			var tracks = [];
 			async.each( docs, function( doc, callback ){
 				var l_tracks = [];
 				doc.tracks.forEach(function( track ){
 					if( track.name.toLowerCase().indexOf( req.params.search.toString().toLowerCase() ) > -1 ){
+						l_tracks.push( track );
+					}
+				});
+				doc.tracks = l_tracks;
+				tracks.push( doc );
+				callback( null );
+			}, function( err ){
+				res.json( tracks.reverse() );
+			});
+        });
+	},
+	
+	artistSearch: function( req, res ){
+		var keywords = new RegExp( RegExp.escape( req.params.artist.toString().toLowerCase() ), 'gi' );		
+		Music.find({
+            artist: keywords
+        }).sort({
+			year: 1
+		}).exec( function ( err, docs ) {
+			res.json( docs );
+        });
+	},
+	
+	artistSearchPage: function( req, res ){
+		var page = req.params.page - 1;
+        var offset = page * config.pageSize;
+		var keywords = new RegExp( RegExp.escape( req.params.artist.toString().toLowerCase() ), 'gi' );		
+		Music.find({
+            artist: keywords
+        }).sort({
+			year: 1
+		}).skip( offset ).limit( config.pageSize ).exec( function ( err, docs ) {
+			res.json( docs );
+        });
+	},
+	
+	genreSearch: function( req, res ){
+		var keywords = new RegExp( RegExp.escape( req.params.genre.toString().toLowerCase() ), 'gi' );		
+		Music.find({
+            'tracks.genres': keywords
+        }).sort({
+			name: -1
+		}).exec( function ( err, docs ) {
+			var tracks = [];
+			async.each( docs, function( doc, callback ){
+				var l_tracks = [];
+				doc.tracks.forEach(function( track ){
+					if( track.genres.toLowerCase().indexOf( req.params.genre.toString().toLowerCase() ) > -1 ){
+						l_tracks.push( track );
+					}
+				});
+				doc.tracks = l_tracks;
+				tracks.push( doc );
+				callback( null );
+			}, function( err ){
+				res.json( tracks.reverse() );
+			});
+        });
+	},
+	
+	genreSearchPage: function( req, res ){
+		var page = req.params.page - 1;
+        var offset = page * config.pageSize;
+        var keywords = new RegExp( RegExp.escape( req.params.genre.toString().toLowerCase() ), 'gi' );
+        Music.find({
+            'tracks.genres': keywords
+        }).sort({
+			name: -1
+		}).skip( offset ).limit( config.pageSize ).exec( function ( err, docs ) {
+			var tracks = [];
+			async.each( docs, function( doc, callback ){
+				var l_tracks = [];
+				doc.tracks.forEach(function( track ){
+					if( track.genres.toLowerCase().indexOf( req.params.genre.toString().toLowerCase() ) > -1 ){
 						l_tracks.push( track );
 					}
 				});
