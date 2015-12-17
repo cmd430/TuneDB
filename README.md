@@ -4,6 +4,13 @@ REST api for music, use it to make media streaming services. It contains
   - Metadata about Albums and individual Tracks (info from the id3 tags)
   - Path to stream tracks from
   - search
+  
+**Supports**
+
+* mp3 (1.1, 2.2, 2.3, 2.4)
+* m4a (mp4)
+* vorbis (ogg, flac)
+* asf (wma, wmv)
 
 Installation
 ============
