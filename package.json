@@ -1,0 +1,25 @@
+{
+  "name": "music-server",
+  "version": "0.0.1",
+  "lastRefresh": 1450318926,
+  "description": "stream your music",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^1.5.0",
+    "body-parser": "^1.14.1",
+    "btoa": "^1.1.2",
+    "compression": "^1.6.0",
+    "cron": "^1.1.0",
+    "express": "^4.13.3",
+    "mongodb": "^2.1.1",
+    "mongoose": "^4.3.1",
+    "morgan": "^1.6.1",
+    "musicmetadata": "^2.0.2",
+    "node-dir": "^0.1.11",
+    "response-time": "^2.3.1",
+    "seedrandom": "^2.4.2",
+    "serve-static": "^1.10.0"
+  },
+  "author": "Bradley 'cmd430' Treweek",
+  "license": "MIT"
+}
