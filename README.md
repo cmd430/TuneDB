@@ -41,7 +41,7 @@ Currently IDs are created using `seedrandom`
   
 The API contains the following 'routes' which produce the example output
 
-`album/:id` - This returns all info and episodes for a particular album. Useful for the "album details" page in your app
+`album/:id` - This returns all info and tracks for a particular album. Useful for the "album details" page in your app
 
 **Example**
 
@@ -162,7 +162,7 @@ The API contains the following 'routes' which produce the example output
 
 `music/` This returns the number of pages available to list 50 albums at a time (used for pagination etc)
 
-`music/:page` this retuns a list of 50 shows with metadata
+`music/:page` this retuns a list of 50 albums with metadata
 
 **Example**
 
