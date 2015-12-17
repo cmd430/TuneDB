@@ -6,6 +6,7 @@ module.exports = {
 	severName: require( 'os' ).hostname(),
 	update: '00 00 * * * *', //update every hour
 	fileStorage: './media', //path to stored music files
+	artwork: false,
 	db: {
 		host: 'localhost',
 		port: 27017,

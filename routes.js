@@ -19,8 +19,7 @@ module.exports = function( app ) {
 	app.get( '/album/search/:search', music.albumSearch );
 	app.get( '/album/search/:search/:page', music.albumSearchPage );
 	
-	//search albums by track name (i.e containing track)
-	//might change to get just the track, if possible
+	//search tracks by track name
 	app.get( '/track/search/:search', music.trackSearch );
 	app.get( '/track/search/:search/:page', music.trackSearchPage );
 	
