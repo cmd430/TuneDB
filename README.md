@@ -2,8 +2,9 @@
 REST api for music, use it to make media streaming services. It contains
 
   - Metadata about Albums and individual Tracks (info from the id3 tags)
+  - Album art (from id3, disabled by default: enable in `config.js`)
   - Path to stream tracks from
-  - search
+  - Search
   
 **Supports**
 
@@ -28,7 +29,7 @@ Install dependencies
 `cd TuneDB`
 `npm install`
 
-Add your music to `./media`, this can be changed in the config.
+Add your music to `./media`, this can be changed in `config.js`.
 
 Fire it up!
 `node index`
@@ -49,6 +50,39 @@ Currently IDs are created using `seedrandom`
 ====
   
 The API contains the following 'routes' which produce the example output
+
+`/` - returns basic info about the API
+
+**Example**
+
+`https://<YOUR_URL>/` returns the following:
+
+```
+{
+	"status": "online",
+	"uptime": 347,
+	"server": "TEST-SERVER",
+	"updated": "Unknown",
+	"version": "0.1.1",
+	"albums": 156,
+	"pages": 4,
+	"routes": [
+		"/",
+		"/music",
+		"/music/:page",
+		"/album/:id",
+		"/album/search/:search",
+		"/album/search/:search/:page",
+		"/track/:id",
+		"/track/search/:search",
+		"/track/search/:search/:page",
+		"/artist/:artist",
+		"/artist/:artist/:page",
+		"/genre/:genre",
+		"/genre/:genre/:page"
+	]
+}
+```
 
 `album/:id` - This returns all info and tracks for a particular album. Useful for the "album details" page in your app
 
