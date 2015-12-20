@@ -8,6 +8,8 @@ REST api for music, use it to make media streaming services. It contains
   
 **Supports**
 
+*Only tested with mp3
+
 * mp3 (1.1, 2.2, 2.3, 2.4)
 * m4a (mp4)
 * vorbis (ogg, flac)
