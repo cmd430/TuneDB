@@ -7,7 +7,7 @@ var config = require( '../config.js' );
 module.exports = {
 	
 	getMusic: function( req, res ){ 
-		 Music.count( {}, function ( err, count ) {
+		Music.count( {}, function ( err, count ) {
             var pages = Math.ceil( count / config.pageSize );
             var docs = [];
             for ( var i = 1; i < pages + 1; i++ ) {
